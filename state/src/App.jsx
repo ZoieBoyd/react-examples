@@ -4,10 +4,12 @@ import './App.css';
 const COLORS = ['pink', 'green', 'blue', 'yellow', 'purple'];
 
 function App() {
+  const [changeCount, setChangeCount] = useState(0);
   const [backgroundColor, setBackgroundColor] = useState(COLORS[0]);
 
   const onButtonClick = (color) => () => {
     setBackgroundColor(color);
+    setChangeCount(changeCount + 1);
   };
 
   return (
@@ -27,6 +29,7 @@ function App() {
           {color}
         </button>
       ))}
+      <p>Color change count: {changeCount}</p>
     </div>
   );
 }
